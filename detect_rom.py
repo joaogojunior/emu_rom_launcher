@@ -1,6 +1,6 @@
 from json_config import carrega_config
 from binascii import hexlify
-from sys import argv
+from sys import argv, exit
 from os import path, listdir
 from emu_rom_launcher_build_date import data_hora_build
 
