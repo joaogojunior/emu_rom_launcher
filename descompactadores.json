@@ -1,0 +1,15 @@
+{
+  ".7z": ["extrair_arquivo_7zip", "listar_conteudo_7z"],
+  ".zip": ["extrair_arquivo_zip", "listar_conteudo_zip"],
+  ".bz2": ["descompactar_bzip2", "listar_conteudo_bzip2"],
+  ".gz": ["descompactar_gzip", "listar_conteudo_gzip"],
+  ".xz": ["descompactar_xz", "listar_conteudo_xz"],
+  ".tar": ["descompactar_tar", "listar_conteudo_tar"],
+  ".tar.bz2": ["descompactar_tar_bz2", "listar_conteudo_tar_bz2"],
+  ".tar.gz": ["descompactar_tar_gz", "listar_conteudo_tar_gz"],
+  ".lzh": ["extrair_arquivo_pma", "listar_conteudo_pma"],
+  ".tar.xz": ["descompactar_tar_xz", "listar_conteudo_tar_xz"],
+  ".lha": ["extrair_arquivo_pma", "listar_conteudo_pma"],
+  ".pma": ["extrair_arquivo_pma", "listar_conteudo_pma"],
+  ".arj": ["extrair_arquivo_arj", "listar_conteudo_arj"]
+}

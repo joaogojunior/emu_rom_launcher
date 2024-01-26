@@ -1,0 +1,158 @@
+{
+  "DOSBOX": {
+    "cmd": ["C:\\Program Files (x86)\\DOSBox-0.74-3\\DOSBox.exe", "-fullscreen", "-c", "\"mount e: e:/\"",
+      "-c", "e:", "-c", "\"cd ?d\"", "-c", "\"00dosbox.bat\""],
+    "ext": ["00dosbox.bat"],
+    "dos": true,
+    "extrai_tudo": true
+  },
+  "MSXDSK BRMSX msx2": {
+    "cmd": ["C:\\Program Files (x86)\\DOSBox-0.74-3\\DOSBox.exe", "-fullscreen", "-c", "\"mount e: e:/\"",
+      "-c", "\"mount c: D:\\emul\\msx\\brmsx\\dos\"", "-c", "c:", "-c",
+	  "\"BRMSX -noenter -msx2 -mapper 4 -diska ?c\"", "-c", "exit"],
+    "ext": ["dsk"],
+    "dos": true,
+    "extrai_tudo": false
+  },
+  "MSXDSK BRMSX": {
+    "cmd": ["C:\\Program Files (x86)\\DOSBox-0.74-3\\DOSBox.exe", "-fullscreen", "-c", "\"mount e: e:/\"",
+      "-c", "\"mount c: D:\\emul\\msx\\brmsx\\dos\"", "-c", "c:", "-c",
+	  "\"BRMSX -noenter -mapper 4 -diska ?c\"", "-c", "exit"],
+    "ext": ["dsk"],
+    "dos": true,
+    "extrai_tudo": false
+  },
+  "*MSXDSK openmsx": {
+    "cmd": ["D:\\emul\\msx\\openmsx\\AMD64\\openmsx.bat", "-machine", "CIEL_Expert-Turbo",
+	  "-ext", "DDX_3.0", "-diska"],
+    "ext": ["dsk"],
+    "dos": false,
+    "extrai_tudo": false
+  },
+  "MSXDSK Meisei": {
+    "cmd": ["D:\\emul\\msx\\meisei 1.3.2 x86\\meisei.exe"],
+    "ext": ["dsk"],
+    "dos": false,
+    "extrai_tudo": false
+  },
+  "MSXDSK fMSX": {
+    "cmd": ["D:\\emul\\msx\\fmsx\\x86\\fMSX.exe", "-diska"],
+    "ext": ["dsk"],
+    "dos": false,
+    "extrai_tudo": false
+  },
+  "MSXDSK no$msx": {
+    "cmd": ["D:\\emul\\msx\\no$msx\\x86\\NO$MSX.EXE"],
+    "ext": ["dsk"],
+    "dos": false,
+    "extrai_tudo": false
+  },
+  "*MSXROM openmsx": {
+    "cmd": ["D:\\emul\\msx\\openmsx\\AMD64\\openmsx.exe", "-machine", "CIEL_Expert-Turbo", "-cart"],
+    "ext": ["rom", "mx1", "mx2"],
+    "dos": false,
+    "extrai_tudo": false
+  },
+  "MSXROM fMSX": {
+    "cmd": ["D:\\emul\\msx\\fmsx\\x86\\fMSX.exe"],
+    "ext": ["rom", "mx1", "mx2"],
+    "dos": false,
+    "extrai_tudo": false
+  },
+  "MSXROM no$msx": {
+    "cmd": ["D:\\emul\\msx\\no$msx\\x86\\NO$MSX.EXE"],
+    "ext": ["rom", "mx1", "mx2"],
+    "dos": false,
+    "extrai_tudo": false
+  },
+  "*MSXCAS openmsx": {
+    "cmd": ["D:\\emul\\msx\\openmsx\\AMD64\\openmsx.exe", "-machine", "Boosted_MSX2_EN",
+	  "-cassetteplayer"],
+    "ext": ["cas", "wav"],
+    "dos": false,
+    "extrai_tudo": false
+  },
+  "MSXCAS fMSX": {
+    "cmd": ["D:\\emul\\msx\\fmsx\\x86\\fMSX.exe"],
+    "ext": ["cas", "wav"],
+    "dos": false,
+    "extrai_tudo": false
+  },
+  "MSXCAS Meisei": {
+    "cmd": ["D:\\emul\\msx\\meisei 1.3.2 x86\\meisei.exe"],
+    "ext": ["cas", "wav"],
+    "dos": false,
+    "extrai_tudo": false
+  },
+  "*MSXBAS openmsx": {
+    "cmd": ["cmd", "/c", "echo", "after", "time", "10", "{type", "\"run", "\\\"?a\\\"\\r\"}", ">", "?D\\om_init.tcl",
+      "&", "D:\\emul\\msx\\openmsx\\AMD64\\openmsx.bat", "-machine", "Boosted_MSX2_EN",
+	  "-diska", "?D", "-command", "\"set fullscreen on\"", "-script", "?D\\om_init.tcl",
+      "&", "del ?D\\om_init.tcl"],
+    "ext": ["bas", "ldr"],
+    "dos": false,
+    "extrai_tudo": true
+  },
+  "MSXBIN openmsx": {
+    "cmd": ["D:\\emul\\msx\\openmsx\\AMD64\\openmsx.bat", "-machine", "Boosted_MSX2_EN",
+	  "-diska", "?D", "-command", "\"set fullscreen on\""],
+    "ext": ["bin", "1"],
+    "dos": false,
+    "extrai_tudo": true
+  },
+  "MSXBAS BRMSX": {
+    "cmd": ["C:\\Program Files (x86)\\DOSBox-0.74-3\\DOSBox.exe", "-fullscreen", "-c", "\"mount e: e:/\"",
+      "-c", "\"mount c: D:\\emul\\msx\\brmsx\\dos\"", "-c", "c:", "-c",
+	  "\"BRMSX -noenter -mapper 4 -mount ?D\"", "-c", "exit"],
+    "ext": ["bas", "ldr"],
+    "dos": true,
+    "extrai_tudo": true
+  },
+  "MSXBAS BRMSX msx2": {
+    "cmd": ["C:\\Program Files (x86)\\DOSBox-0.74-3\\DOSBox.exe", "-fullscreen", "-c", "\"mount e: e:/\"",
+      "-c", "\"mount c: D:\\emul\\msx\\brmsx\\dos\"", "-c", "c:", "-c",
+	  "\"BRMSX -noenter -msx2 -mapper 4 -mount ?D\"", "-c", "exit"],
+    "ext": ["bas", "ldr"],
+    "dos": true,
+    "extrai_tudo": true
+  },
+  "*MSXDOS openmsx": {
+    "cmd": ["D:\\emul\\msx\\openmsx\\AMD64\\openmsx.exe", "-machine", "Boosted_MSX2_EN",
+	  "-diska", "?D"],
+    "ext": ["msxdos.sys", "command.com"],
+    "dos": false,
+    "extrai_tudo": true
+  },
+  "MSXDOS COM drive b: openmsx": {
+    "cmd": ["D:\\emul\\msx\\openmsx\\AMD64\\openmsx.exe", "-machine", "Boosted_MSX2_EN",
+	  "-ext", "msxdos2", "-diska",
+      "D:\\emul\\msx\\openmsx\\dos2", "-diskb", "?D"],
+    "ext": ["com"],
+    "dos": false,
+    "extrai_tudo": true
+  },
+  "Master System / Game Gear / SG1000 / SC3000": {
+    "cmd": ["D:\\emul\\master system\\mekaw-2023-08-26\\x86\\mekaw.exe"],
+    "ext": ["sms", "gg", "sg", "sc"],
+    "dos": false,
+    "extrai_tudo": false
+  },
+  "Mega Drive / Sega 32x": {
+    "cmd": ["D:\\emul\\multiple systems\\Fusion363 x86\\Fusion.exe"],
+    "ext": ["bin", "smd", "md", "gen", "32x"],
+    "dos": false,
+    "extrai_tudo": false
+  },
+  "Nintendinho": {
+    "cmd": ["D:\\emul\\nes\\fceux-2.3.0-win32\\fceux.exe"],
+    "ext": ["nes"],
+    "dos": false,
+    "extrai_tudo": false
+  },
+  "Super Nintendo": {
+    "cmd": ["D:\\emul\\super nes\\snes9x\\snes9x_1.60_x64\\snes9x-x64.exe"],
+    "ext": ["sfc", "smc"],
+    "dos": false,
+    "extrai_tudo": false
+  }
+}

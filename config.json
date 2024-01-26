@@ -1,0 +1,10 @@
+{
+  "caminho_temp_dir": "e:\\",
+  "arquivo_rom": "",
+  "abre_arquivador": "C:\\Program Files\\7-Zip\\7zFM.exe",
+  "alvos_prioritarios": ["00dosbox.bat", "msxdos.sys", "command.com", ".bas", ".ldr"],
+  "tam_ramdrive": "64M",
+  "format_ramdrive": "/FS:FAT32 /Q",
+  "tempo_espera_caminho": 30,
+  "tempo_espera_escolha": 10
+}
