@@ -12,4 +12,6 @@ with open(script_data_hora, 'w') as arquivo_script:
 
 for script in scripts_compilar:
     # Comando PyInstaller para compilar o script principal
-    subproc_run(['pyinstaller', '--upx-dir=D:\\upx-4.2.2-win64\\', '--onefile', script])
+    subproc_run(
+        ['pyinstaller', '--upx-dir=D:\\apps win32 e AMD64\\compactadores\\upx-4.2.2-win64', '--onefile', script]
+    )
