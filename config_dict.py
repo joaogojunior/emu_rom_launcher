@@ -1,8 +1,9 @@
-from json_config import carrega_ou_cria_config
+from criador_json import criador_json as cj
 
 # carrega valores das opcoes em "config.json" ou cria arquivo a partir deste json padrão
 config_json_inicial = (
     '{\n'
+    '  "json_ver": 0,\n'
     '  "caminho_temp_dir": "e:\\\\",\n'
     '  "arquivo_rom": "",\n'
     '  "abre_arquivador": "C:\\\\Program Files\\\\7-Zip\\\\7zFM.exe",\n'
@@ -13,4 +14,4 @@ config_json_inicial = (
     '  "tempo_espera_escolha": 10\n'
     '}'
 )
-config_dict = carrega_ou_cria_config("config.json", config_json_inicial)
+config_dict = cj.carrega_ou_cria_config("config.json", config_json_inicial)

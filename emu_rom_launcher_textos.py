@@ -1,9 +1,9 @@
 # import da data atual
-from emu_rom_launcher_build_date import data_hora_build
+from pyinstaller_build_date import data_hora_build
 from descompactadores_dict import descompactadores
 
 # versao atual
-VER = "0.1f"
+VER = "0.1g"
 
 # descricao do app utilizado pelo argparser e na criacao do readme.txt
 description_text = "Emu_rom_launcher v" + VER + " - tenta detectar o tipo de rom e executa o emulador apropiado."
@@ -134,7 +134,6 @@ epilog_text = (
     '    conteúdo do diretorio raiz do jogo (onde também deve estar o arquivo criado no passo 4).\n'
     '6 - Remove o diretorio temporário.\n'    
     'Agora você pode usar o arquivo compactado com o emu_rom_launcher para iniciar o dosbox!\n'
-    ', este arquivo deve conter os comandos necessários para iniciá-lo )'
 )
 
 

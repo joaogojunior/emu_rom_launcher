@@ -1,8 +1,8 @@
-from json_config import carrega_config
+from criador_json import criador_json as cj
 from binascii import hexlify
 from sys import argv, exit
 from os import path, listdir
-from emu_rom_launcher_build_date import data_hora_build
+from pyinstaller_build_date import data_hora_build
 
 # debug prints
 debug = False
@@ -13,7 +13,7 @@ class DetectMagicBytes:
         self.mb_tipos_dict = {}
         for json_file in magic_bytes_json_files:
             # Adapte esta função para carregar o JSON conforme necessário
-            self.mb_tipos_dict.update(carrega_config(json_file))
+            self.mb_tipos_dict.update(cj.carrega_config(json_file))
 
     @staticmethod
     def consome_fitas(fita_comparacao, bytes_restante):

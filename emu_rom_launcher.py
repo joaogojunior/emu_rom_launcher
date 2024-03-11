@@ -53,6 +53,7 @@
 # - agora o todos os argumentos são checados por caracteres de comando de substituição e não para no primeiro
 #   encontrado assim substituindos em todos os argumentos.
 # - revertido para lha.exe para o suporte a .lha e .lzh.
+# - Changelog sera descontinuado, agora o codigo vai ser mantido por git! :)
 #
 # v0.1e
 # - adicionado changelog :) e corrigindo bug que impede a abertura de .bz2 .gz e agora tambem .xz que agora é suportado,
@@ -222,7 +223,6 @@ def escolha_manual(lista_escolhas, escolha_nao_aplicavel):
                 print("\nTimeout, escolhendo o padrão...", end="")
         # se alguma tecla foi pressionada le o valor
         if tecla_foi_pressionada():
-            # se tiver em contagem regressive adiciona um \n
             if escolha_padrao != -1:
                 print("")
             tecla_digitada = le_tecla()

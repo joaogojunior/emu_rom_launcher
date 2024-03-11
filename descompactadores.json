@@ -1,4 +1,5 @@
 {
+  "json_ver": 1,
   ".7z": ["extrair_arquivo_7zip", "listar_conteudo_7z"],
   ".zip": ["extrair_arquivo_zip", "listar_conteudo_zip"],
   ".bz2": ["descompactar_bzip2", "listar_conteudo_bzip2"],

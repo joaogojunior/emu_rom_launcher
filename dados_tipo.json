@@ -1,4 +1,5 @@
 {
+  "json_ver": 1,
   "DOSBOX": {
     "cmd": ["C:\\Program Files (x86)\\DOSBox-0.74-3\\DOSBox.exe", "-fullscreen", "-c", "\"mount e: e:/\"",
       "-c", "e:", "-c", "\"cd ?d\"", "-c", "\"00dosbox.bat\""],

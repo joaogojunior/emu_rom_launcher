@@ -22,3 +22,17 @@ removendo todos os arquivo após o uso.
 Outra situação é executar jogos de DOS no DOSBOX direto do arquivo compactado,
 nesse caso de uso o emu_rom_laucher é capaz de salvar e persistir as alterações que
 ocorrem durante a execução do jogo, como quando um save ou o progresso é salvo.
+
+Como criar um arquivo compactado para ser executado junto com o Dosbox:
+1 - Descompacte ou instale o jogo para um diretorio temporário.
+2 - Aplique qualquer crack ou patch necessário para rodar no dosbox.
+3 - Configure o suporte de som do jogo respeitando as opções ativas no dosbox.
+4 - Crie um arquivo bat chamado 00dosbox.bat (ou outro nome que deve ser configurado na chave
+    "alvos_prioritarios" em config.json e também "ext" para o tipo DOSBOX em dados_tipo.json) que
+    contém os comando necessários para iniciar o jogo e um exit opcional como ultimo comando (afim
+    de fechar a janela do dosbox automaticamentena). Este arquivo deve estar na raiz do diretório
+    do jogo.
+5 - Crie um arquivo comprimido usando algum formato suportado (recomendo 7z ou tar.xz) do
+    conteúdo do diretorio raiz do jogo (onde também deve estar o arquivo criado no passo 4).
+6 - Remove o diretorio temporário.
+Agora você pode usar o arquivo compactado com o emu_rom_launcher para iniciar o dosbox!
