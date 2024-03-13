@@ -9,7 +9,7 @@ config_json_inicial = (
     '  "abre_arquivador": "C:\\\\Program Files\\\\7-Zip\\\\7zFM.exe",\n'
     '  "alvos_prioritarios": ["00dosbox.bat", "msxdos.sys"],\n'
     '  "tam_ramdrive": "64M",\n'
-    '  "format_ramdrive": "/FS:FAT32 /Q",\n'
+    '  "format_ramdrive": "/FS:FAT32 /Q /y",\n'
     '  "tempo_espera_caminho": 30,\n'
     '  "tempo_espera_escolha": 10\n'
     '}'
