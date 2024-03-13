@@ -23,4 +23,4 @@ descompactadores_json_inicial = '{\n\
 }'
 # carrega objeto dicionario a partir do arquivo "descompactadores.json" se existir se não existir cria um a partir do
 # json padrão acima e carrega ele.
-descompactadores = cj.carrega_ou_cria_config("descompactadores.json", descompactadores_json_inicial)
+descompactadores = cj.carrega_ou_cria_config("conf/descompactadores.json", descompactadores_json_inicial)

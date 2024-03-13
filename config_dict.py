@@ -14,4 +14,4 @@ config_json_inicial = (
     '  "tempo_espera_escolha": 10\n'
     '}'
 )
-config_dict = cj.carrega_ou_cria_config("config.json", config_json_inicial)
+config_dict = cj.carrega_ou_cria_config("conf/config.json", config_json_inicial)

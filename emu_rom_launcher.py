@@ -770,7 +770,7 @@ def main():
             if modo_debug:
                 print("tratando arquivo fornecido como nao comprimido...")
             # tenta detectar tipo usando detect_rom primeiro
-            detetor = DetectMagicBytes("roms_mb.json")
+            detetor = DetectMagicBytes("conf/roms_mb.json")
             tipo_detect_rom = detetor.detecta_tipo_arquivo(args.caminho_arquivo)
             if tipo_detect_rom[0] != "Desconhecido":
                 # converte em chave
@@ -802,7 +802,7 @@ def main():
 def checa_arquivo_comprimido(caminho_arquivo, ext_composta, ext_final):
     print("Extensão do arquivo fornecido:", ext_composta)
     # verifica se os arquivos são do tipo presumido
-    detetor = DetectMagicBytes("arcs_mb.json")
+    detetor = DetectMagicBytes("conf/arcs_mb.json")
     tipo, magic_encoded = detetor.detecta_tipo_arquivo(caminho_arquivo)
     print("tipo do arquivo detectado:", tipo)
     if ext_final in tipo.lower():

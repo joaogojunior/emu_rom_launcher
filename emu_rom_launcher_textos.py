@@ -3,7 +3,7 @@ from pyinstaller_build_date import data_hora_build
 from descompactadores_dict import descompactadores
 
 # versao atual
-VER = "0.1g"
+VER = "0.1h"
 
 # descricao do app utilizado pelo argparser e na criacao do readme.txt
 description_text = "Emu_rom_launcher v" + VER + " - tenta detectar o tipo de rom e executa o emulador apropiado."

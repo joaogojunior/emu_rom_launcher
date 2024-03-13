@@ -12,8 +12,7 @@ class DetectMagicBytes:
     def __init__(self, *magic_bytes_json_files):
         self.mb_tipos_dict = {}
         for json_file in magic_bytes_json_files:
-            # Adapte esta função para carregar o JSON conforme necessário
-            self.mb_tipos_dict.update(cj.carrega_config(json_file))
+            self.mb_tipos_dict.update(cj.carrega_config(json_file)[0])
 
     @staticmethod
     def consome_fitas(fita_comparacao, bytes_restante):
@@ -259,7 +258,7 @@ if __name__ == '__main__':
             exit(1)
         # caminho existe...
         # instancia detector de roms
-        detetor = DetectMagicBytes("arcs_mb.json", "roms_mb.json")
+        detetor = DetectMagicBytes("conf/arcs_mb.json", "conf/roms_mb.json")
         if path.isfile(caminho):
             # caminho tem um arquivo tipo c:\diretorio\arquivo.bla
             print("tipo detectado:", detetor.detecta_tipo_arquivo(caminho))

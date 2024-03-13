@@ -17,7 +17,7 @@ PLATAFORMA = sys_platform
 # to dos: ZOO
 
 # instancia detetor de roms
-detetor = DetectMagicBytes("roms_mb.json")
+detetor = DetectMagicBytes("conf/roms_mb.json")
 
 
 # cria um arquivo .tar.xz a partir de uma lista de arquivos e o local onde estes arquivos estao

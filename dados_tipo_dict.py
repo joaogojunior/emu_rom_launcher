@@ -21,4 +21,4 @@ dados_tipo_json_inicial = (
     '  }\n'
     '}'
 )
-dados_tipo = cj.carrega_ou_cria_config("dados_tipo.json", dados_tipo_json_inicial)
+dados_tipo = cj.carrega_ou_cria_config("conf/dados_tipo.json", dados_tipo_json_inicial)
