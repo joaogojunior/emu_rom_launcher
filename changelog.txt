@@ -1,0 +1,133 @@
+changelog:
+
+v0.1
+- corrigido uso de type() para o operador is em emu_rom_launcher.escolha_manual().
+- movendo arquivos config_dict, dados_tipo_dict e descompactadores_dict para o novo pacote cria_json_inicial.
+- movendo e renomeando classe do detector de magic byte em detect_rom para ChecaMagic no novo pacote checa_magic.
+- movendo emu_rom_launcher_win32 para o novo pacote plataforma.
+- movendo changelog de emu_rom_launcher.py para o arquivo changelog.txt.
+- criado arquivo valores_globais e movido variavel debug, assim a configuração para ativar o modo debug fica em so um
+  lugar.
+- alterado debug em detect_rom para usar a variável debug em valores_globais.
+- alterado debug em classe_checa_magic.ChecaMagic para usar a variável debug em valores_globais.
+- movido variavel VER em emu_rom_launcher_textos para valores_globais.
+- feito todos os metodos em ChecaMagic privados a não ser os três métodos destinados a detectar o tipo de um arquivo.
+- alterado implementacao de __consome_fitas, agora ao inves de utilizar as operacoes custozas de duplicar ou excluir
+  itens da string, agora um index é incrementado para cada buffer independentemente e todas as checagens foram adaptadas
+  para essa nova estrategia, resultandno que apenas checagens e somas aritmetricas são utilizadas, sendo elas operações
+  por natureza mais leves, espera-se obter assim mais performance.
+- simplificado os tres metodos de detecao em ChecaMagic para apenas um detecta_tipo(arqumento), sendo que argumento
+  pode ser uma string com o caminho de um arquivo, um file handler aberto com o atributo "b" do open ou um buffer de
+  bytes com o conteudo completo do arquivo.
+
+v0.1f
+- nova funcionalidade: agora detecta arquivos usando os métodos em detect_rom.py que se de utiliza magic bytes
+  codificados no arquivo magic_bytes.json. É utilizado inicialmente para detectar os tipos de arquivo e caso um
+  arquivo nao possa ser detectado utiliza o nome de arquivo, extensão e por último escolha manual.
+- agora .gz, .bz2 e .xz possuem metodo de listar conteudos em descompactadores_utils configurados no dicionario de
+  descompactadores, isso foi necessario para suportar crc32 e detect_rom.
+- simplificado o bloco match em main, agora .gz, .bz2 e .xz é tratado como todos os outros arquivos compactados.
+- como efeito colateral tivemos que mudar como a extensão do arquivo é encontrada para poder pegar extensões
+  compostas. ex: .tar.gz
+- agora o dicionário de descompactadores reside em descompactadores.json e suas definições foram movidos para
+  descompactadores_dict.py para que possa ser utilizada por outros módulos do codigo..
+- config_dict não é mais global e foi movido para config_dict.py e pode ser importado em outras partes, como por
+  exemplo em descompactadores_utils.py.
+- alterado como arquivos .tar.gz, .tar.bz2 e .tar.xz listam seus conteudos antes utilizava o metodo do .tar com opcao
+  modo setado para tipo, funciona mas tem pessima performance ao fazer operações em arquivo um por um. Agora criamos
+  um .tar em um diretorio temporario utilizando o metodo já disponível de extrair arquivos do tipo em questão e após
+  é utilizado o método do .tar para listar diretamente o arquivo temporário previamente criado. A performance obtida
+  justifica o código extra já que antes o gerenciador de contexto perdia muito tempo descomprimindo os mesmos streams
+  de bytes diversas vezes para acessar cada arquivo dentro do tar, agora a descompressão é feita no arquivo inteiro só
+  uma única vez.
+- simplificado ainda mais o bloco match em main, agora todas as extensões dos arquivos são comparadas a partir de uma
+  lista de extensões criada das chaves do dicionario de descompactadores. O que centralizou em descompactadores.json
+  todas as configurações para adicionar um formato de arquivo compactado novo.
+- movido dados_tipo para dados_tipo_dict.py
+- refatorado metodo processa_arquivo, se parametro alvo for vazio faz ele ser o basename de caminho_arquivo o que
+  simplificou o codigo que seta o destino.
+- converte_tipo_em_chave: adicionado escolha manual se apertar algum tecla na inicializacao.
+- escolha_manual: workarround bug que impede uma lista com mais de 10 itens ser selecionado, pois so le uma tecla.
+  A lista pode ter no maximo 36 itens entao so mostra os primeiros 36. Os caracteres validos sao de 0 a 9 e A a Z.
+- novo metodo em json_config.py carrega_config que so carrega o json sem se preocupar em criar.
+- detect_rom agora exporta a classe DetectaMagicBytes e permite configurar um json especifico.
+- arquivos compactados tem seu tipos checados e comparados com a extensão atual pra evitar abrir arquivos inválidos.
+- reverte para deteccao com nome de arquivo caso o detect_rom detecte um tipo cuja a extensão não condiza com o
+  nome do arquivo (e que se por sua vez nao for possivel detectar retorna Desconhecido).
+- ajustado arquivo "arquivos_compactados.json" para os arquivos do tipo lha retornarem "LHA LZH" ao invez de apenas
+  "LHA".
+- alterado comparação em main para que a extensão esteja contida na string retornada como tipo pelo detector de magic
+  bytes dos arquivos compactados (corrigindo o caso do .lzh que havia parado de funcionar com a adição da checagem por
+  magic bytes).
+- adicionado suporte a saves, ao carregar jogos do dosbox ou que extraiam todos os arquivos do arquivo compactado,
+  coleta todos os arquivos alterados e criados e salva em um arquivo compactado criado no diretorio ./saves com o nome
+  original do arquivo mais "_save_XXX.tar.xz" onde XXX é um número que inicia em 000 e vai incrementado caso já esteja
+  utilizado.
+- ao iniciar arquivo do dosbox ou que extraiam tudo é checado se existem arquivo salvos anteriormente no diretorio
+  ./saves com o nome original mais "_save_XXX.tar.xz" onde XXX é um número que inicia em 000 e vai incrementando e se
+  forem encontradas exibe uma lista de escolha manual para escolher qual save deve ser extraido ou se inicia sem.
+- suporte ao pma adicionado via lha.exe (v 0.3).
+- suporta a .arj adicionado via unarj.exe modificado por mim mesmo!
+- suporta o caractere de comando ?a para substituir pelo nome do alvo selecionado no arquivo compactado na composição
+  da linha de comando para o tipo em questão.
+- agora o todos os argumentos são checados por caracteres de comando de substituição e não para no primeiro
+  encontrado assim substituindos em todos os argumentos.
+- revertido para lha.exe para o suporte a .lha e .lzh.
+- Changelog sera descontinuado, agora o codigo vai ser mantido por git! :)
+
+v0.1e
+- adicionado changelog :) e corrigindo bug que impede a abertura de .bz2 .gz e agora tambem .xz que agora é suportado,
+  o bug em questao tem haver com determinar o tipo do arquivo baseado na extensao compacatada ao inves do alvo e foi
+  introduzido nao sei quando uma vez que o suporte a gz e bz2 ja funcionaram no passado, melhorar o teste e isso que
+  motivou o changelog...
+- adicionado suporte a arquivos .tar sem compressão e arquivos .tar.xz e .xz
+- adicionado suporte adicional multiplataforma (apenas win32 no momento o que cobre x64 tambem)
+- restruturação do codigo movendo todos as funcoes especificas do windows para emu_rom_launcher_win32
+- restruturação do codigo movendo todos os descompactadores para descompactadores_utils
+- restruturação do codigo movendo todos os textos e strings para emu_rom_launcher_textos
+- implementado auto resolução de conflitos quando um tipo de arquivo detectado ja existe como alvo, e quando todos os
+  alvos são do mesmo tipo, utilizando o primeiro alvo.
+- e varias outras pequenas correções e restruturações.
+- adicionado checagem de error de execução ao listar ou descompactar aqruivos, terminando o programa e exibindo a
+  o arquivo corrompido e detalhes do erro.
+- corrigido bug no codigo que adiciona o nome do arquivo e caminho completo como ultimo parametro quando nenhum
+  caractere especial é encontrado, o bug era que o parametro era adiciona uma vez para cada argumento que nao houvesse
+  caractere especiais, o certo é apenas uma vez ao final.
+- adicinado um input para reter o fechamento da janela para que o usuario possa ler as mensagens de erros na saida.
+- adicionado parâmetro "usa_arquivador" em config.json que permiter configurar um arquivador padrão para abrir o
+  arquivo compactado caso não encontre nenhum tipo conhecido.
+- removido usa da funcao copyfileobj, substituido por um saida.write(entrada.read()) :)
+- adicionado checagens que faltavam de tipo para evitar processar arquivod de tipo desconhecido quando especificado,
+  diretamente na linha de comando ou em arquivos .gz, .bz2 e .xz.
+- adicionando suporte a especificar um nome de arquivo com extensão ao invés de apenas a extensão para permitir
+  detectar de maneira mais avançada tipos como disco de boot de msxdos (msxdos.sys)
+- adicionado documentação de como criar jogos compactados para o Dosbox.
+- removido a necessidade de um arquivo DOSGAME.OLD agora apenas o arquivo com nome "arquivo_bat_dosbox" definido em
+  config.json é necessário.
+- adicionado lista_nao_aplicavel para que o programa memorize quais os tipo nao sao relevantes naquele caso e nao
+  exiba mais essas escolhas
+- ajustes no codigo de tipo_do_nome_arquivo e escolha_manual para que a lista_nao_aplicavel funciona corretamente
+- escolha_manual agora exibe uma opção nao aplicavel definida pelo objeto chamador
+- exibe a opção de sair do programa sem executar nada se houver mais de um alvo (utilizando a escolha nao aplicavel
+  recem adicionada).
+- agora um nome de dado pode conter um * como primeiro caractere e isso sinaliza que ele é o padrão se houverem outros
+- nome de arquivo bat padrao do dosbox mudou de "DOSSTART.BAT" para a string configurada em "arquivo_bat_dosbox"
+  do arquivo config.json
+- agora os menus podem ter um timeout configurado por "tempo_espera_escolha" no arquivo config.json quando existir um
+  comando padrão para este tipo.
+- corrigido e atualizado textos para refletir últimas mudanças como parametro novos do arquivo config.json
+  "arquivo_bat_dosbox" e "tempo_espera_escolha".
+- agora é possível digitar enter numa escolha manual e selecionar a escolha padrão.
+- refatorado o codigo de inicializacao em inicializa_e_checa_args() e checa_caminhos_inicializacao(args)
+- refatorado processa_arquivo_compactado() em processa_arquivo() permitindo que o metodo seja utilizado
+  quando especificado um arquivo rom diretamente, bastando passar None como descompactador e "" como alvo.
+- implementado verificação dos arquivo com crc32 para checar por arquivos alterados durante a execução.
+- implementado verificação de arquivos novos criados durante a execução.
+- adaptado todos os decompressores para listar os arquivos e exportas duas listas uma de arquivos que tenham um crc32
+  valido e tenham / como separador de diretorios e outra com o crc32 de cada arquivo.
+- adicionado suporte a .lha (so faltava configurar a extensao no dicionario de descompactadores e na clausula case
+  em main).
+- adicionado chave "alvos_prioritarios" em config.json para flexibilizar as regras de resolução de conflitos para os
+  tipos de alvos diferentes adicionados posteriormente.
+- removido chave "arquivo_bat_dosbox" de config.json pois ela foi substituida pela mais flexivel opção
+  "alvos_prioritarios".

@@ -1,11 +1,18 @@
 {
-  "json_ver": 1,
-  "caminho_temp_dir": "e:\\",
+  "json_ver": 2,
+  "caminho_temp_dir": "r:\\",
   "arquivo_rom": "",
-  "abre_arquivador": "C:\\Program Files\\7-Zip\\7zFM.exe",
-  "alvos_prioritarios": ["00dosbox.bat", "msxdos.sys", "command.com", ".bas", ".ldr"],
-  "tam_ramdrive": "64M",
+  "converte_espacos_em_underscore": 1,
+  "caminho_7zip": "C:\\Program Files\\7-Zip\\7z.exe",
+  "alvos_prioritarios": ["00dosbox.bat", "msxdos.sys", "msxdos2.sys"],
+  "tam_ramdrive": "740M",
   "format_ramdrive": "/FS:FAT32 /Q /y",
+  "encoding_padrao": "cp850",
   "tempo_espera_caminho": 30,
-  "tempo_espera_escolha": 10
+  "tempo_espera_escolha": 20,
+  "enter_para_fechar": 1,
+  "carregar_save_auto": 1,
+  "salvar_mesmo_arquivo": 1,
+  "escolhe_primeiro_se_iguais": 0,
+  "conferir_extensao_para_tipo_detectado": 0
 }

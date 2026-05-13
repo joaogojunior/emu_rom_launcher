@@ -1,2 +1,5 @@
-py7zr~=0.20.8
+py7zr>=0.20.8
 criadorjson
+pytest
+pyinstaller
+pyqt6-sip

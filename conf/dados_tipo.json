@@ -1,159 +1,354 @@
 {
-  "json_ver": 1,
-  "DOSBOX": {
-    "cmd": ["C:\\Program Files (x86)\\DOSBox-0.74-3\\DOSBox.exe", "-fullscreen", "-c", "\"mount e: e:/\"",
-      "-c", "e:", "-c", "\"cd ?d\"", "-c", "\"00dosbox.bat\""],
+  "json_ver": 2,
+  "caminhos": {
+    "dosbox": "\"C:\\win apps\\emu utils\\DOSBox-0.74-3 x86\\DOSBox.exe\"",
+    "openmsx": "\"d:\\video games\\emuladores\\msx\\openmsx\\AMD64\\openmsx.bat\"",
+    "ootake": "\"D:\\video games\\emuladores\\pcengine\\ootake\\Ootake301\\Ootake.exe\"",
+    "meisei": "\"d:\\video games\\emuladores\\msx\\meisei 1.3.2 x86\\meisei.exe\"",
+    "fmsx": "\"d:\\video games\\emuladores\\msx\\fmsx\\x86\\fMSX.exe\"",
+    "no$msx": "\"d:\\video games\\emuladores\\msx\\no$msx\\x86\\NO$MSX.EXE\"",
+    "brmsx": "\"d:\\video games\\emuladores\\msx\\brmsx\\dos\"",
+    "dos2dsk": "\"D:\\msx_arquivos\\boot\\dos2.dsk\"",
+    "meka": "\"D:\\video games\\emuladores\\master system\\mekaw-2023-08-26 win32\\mekaw.exe\"",
+    "fusion": "\"D:\\video games\\emuladores\\multiple systems\\fusion\\fusion 3.64 win32\\Fusion364\\Fusion.exe\"",
+    "fceux": "\"d:\\video games\\emuladores\\nes\\fceux-2.3.0-win32\\fceux.exe\"",
+    "snes9x": "\"d:\\video games\\emuladores\\super nes\\snes9x\\snes9x_1.60_x64\\snes9x-x64.exe\"",
+    "no$2k6": "\"D:\\video games\\emuladores\\atari 2600\\NO$2K6 win32\\NO$2K6.EXE\"",
+    "yabasanshiro": "\"D:\\video games\\emuladores\\saturn\\yabasanshiro\\yabasanshiro-1.16.7-153d01\\yabasanshiro.exe\"",
+    "magicengine": "\"D:\\video games\\emuladores\\pcengine\\magic engine\\Magic-Engine 1.1.3\\x86\\pce.exe\"",
+    "turboengine": "\"D:\\video games\\emuladores\\pcengine\\turboengine\\TurboEngine032\\TurboEngine.exe\"",
+    "tgemu": "\"D:\\video games\\emuladores\\pcengine\\tgemu\"",
+    "otvdm": "\"C:\\win apps\\emu utils\\otvdm-v0.9.0\\otvdmw.exe\""
+  },
+  "help": {
+    "cmd": ["?a - alvo (apenas nome)", "?A - alvo (apena nome sem extensão)",
+      "?d - diretorio destino relativo", "?D - diretorio destino completo",
+      "?c - caminho completo com nome de arquivo", "?*substring_nome* - arquivo que possua o substring no nome",
+      "?t - caminho do diretorio temporario relativo", "?T - caminho do diretorio temporario completo",
+      "?u - drive temporário sem barra", "?U - drive temporário com barra"
+    ],
+    "ext": [],
+    "dos": false,
+    "extrai_tudo": false
+  },
+  "launch 00dosbox.bat DOSBOX autostart": {
+    "cmd": ["caminho:dosbox -fullscreen",
+            "-c \"mount ?u ?U\"",
+            "-c ?u",
+            "-c \"cd ?d\"",
+            "-c \"00dosbox.bat\""],
     "ext": ["00dosbox.bat"],
     "dos": true,
     "extrai_tudo": true
   },
-  "MSXDSK BRMSX msx2": {
-    "cmd": ["C:\\Program Files (x86)\\DOSBox-0.74-3\\DOSBox.exe", "-fullscreen", "-c", "\"mount e: e:/\"",
-      "-c", "\"mount c: D:\\emul\\msx\\brmsx\\dos\"", "-c", "c:", "-c",
-	  "\"BRMSX -noenter -msx2 -mapper 4 -diska ?c\"", "-c", "exit"],
-    "ext": ["dsk"],
-    "dos": true,
-    "extrai_tudo": false
-  },
-  "MSXDSK BRMSX": {
-    "cmd": ["C:\\Program Files (x86)\\DOSBox-0.74-3\\DOSBox.exe", "-fullscreen", "-c", "\"mount e: e:/\"",
-      "-c", "\"mount c: D:\\emul\\msx\\brmsx\\dos\"", "-c", "c:", "-c",
-	  "\"BRMSX -noenter -mapper 4 -diska ?c\"", "-c", "exit"],
-    "ext": ["dsk"],
-    "dos": true,
-    "extrai_tudo": false
-  },
-  "*MSXDSK openmsx": {
-    "cmd": ["D:\\emul\\msx\\openmsx\\AMD64\\openmsx.bat", "-machine", "CIEL_Expert-Turbo",
-	  "-ext", "DDX_3.0", "-diska"],
-    "ext": ["dsk"],
-    "dos": false,
-    "extrai_tudo": false
-  },
-  "MSXDSK Meisei": {
-    "cmd": ["D:\\emul\\msx\\meisei 1.3.2 x86\\meisei.exe"],
-    "ext": ["dsk"],
-    "dos": false,
-    "extrai_tudo": false
-  },
-  "MSXDSK fMSX": {
-    "cmd": ["D:\\emul\\msx\\fmsx\\x86\\fMSX.exe", "-diska"],
-    "ext": ["dsk"],
-    "dos": false,
-    "extrai_tudo": false
-  },
-  "MSXDSK no$msx": {
-    "cmd": ["D:\\emul\\msx\\no$msx\\x86\\NO$MSX.EXE"],
-    "ext": ["dsk"],
-    "dos": false,
-    "extrai_tudo": false
-  },
-  "*MSXROM openmsx": {
-    "cmd": ["D:\\emul\\msx\\openmsx\\AMD64\\openmsx.exe", "-machine", "CIEL_Expert-Turbo", "-cart"],
-    "ext": ["rom", "mx1", "mx2"],
-    "dos": false,
-    "extrai_tudo": false
-  },
-  "MSXROM fMSX": {
-    "cmd": ["D:\\emul\\msx\\fmsx\\x86\\fMSX.exe"],
-    "ext": ["rom", "mx1", "mx2"],
-    "dos": false,
-    "extrai_tudo": false
-  },
-  "MSXROM no$msx": {
-    "cmd": ["D:\\emul\\msx\\no$msx\\x86\\NO$MSX.EXE"],
-    "ext": ["rom", "mx1", "mx2"],
-    "dos": false,
-    "extrai_tudo": false
-  },
-  "*MSXCAS openmsx": {
-    "cmd": ["D:\\emul\\msx\\openmsx\\AMD64\\openmsx.exe", "-machine", "Boosted_MSX2_EN",
-	  "-cassetteplayer"],
-    "ext": ["cas", "wav"],
-    "dos": false,
-    "extrai_tudo": false
-  },
-  "MSXCAS fMSX": {
-    "cmd": ["D:\\emul\\msx\\fmsx\\x86\\fMSX.exe"],
-    "ext": ["cas", "wav"],
-    "dos": false,
-    "extrai_tudo": false
-  },
-  "MSXCAS Meisei": {
-    "cmd": ["D:\\emul\\msx\\meisei 1.3.2 x86\\meisei.exe"],
-    "ext": ["cas", "wav"],
-    "dos": false,
-    "extrai_tudo": false
-  },
-  "*MSXBAS openmsx": {
-    "cmd": ["cmd", "/c", "echo", "after", "time", "10", "{type", "\"run", "\\\"?a\\\"\\r\"}", ">", "?D\\om_init.tcl",
-      "&", "D:\\emul\\msx\\openmsx\\AMD64\\openmsx.bat", "-machine", "Boosted_MSX2_EN",
-	  "-diska", "?D", "-command", "\"set fullscreen on\"", "-script", "?D\\om_init.tcl",
-      "&", "del ?D\\om_init.tcl"],
-    "ext": ["bas", "ldr"],
-    "dos": false,
-    "extrai_tudo": true
-  },
-  "MSXBIN openmsx": {
-    "cmd": ["D:\\emul\\msx\\openmsx\\AMD64\\openmsx.bat", "-machine", "Boosted_MSX2_EN",
-	  "-diska", "?D", "-command", "\"set fullscreen on\""],
-    "ext": ["bin", "1"],
-    "dos": false,
-    "extrai_tudo": true
-  },
-  "MSXBAS BRMSX": {
-    "cmd": ["C:\\Program Files (x86)\\DOSBox-0.74-3\\DOSBox.exe", "-fullscreen", "-c", "\"mount e: e:/\"",
-      "-c", "\"mount c: D:\\emul\\msx\\brmsx\\dos\"", "-c", "c:", "-c",
-	  "\"BRMSX -noenter -mapper 4 -mount ?D\"", "-c", "exit"],
-    "ext": ["bas", "ldr"],
+  "launch 16bit DOS executable with DOSBOX": {
+    "cmd": ["caminho:dosbox", "-fullscreen", "-c", "\"mount ?u ?U\"",
+      "-c", "?u", "-c", "\"cd ?d\"", "-c", "\"?a\""],
+    "ext": [".bat", ".com", ".exe"],
     "dos": true,
     "extrai_tudo": true
   },
-  "MSXBAS BRMSX msx2": {
-    "cmd": ["C:\\Program Files (x86)\\DOSBox-0.74-3\\DOSBox.exe", "-fullscreen", "-c", "\"mount e: e:/\"",
-      "-c", "\"mount c: D:\\emul\\msx\\brmsx\\dos\"", "-c", "c:", "-c",
-	  "\"BRMSX -noenter -msx2 -mapper 4 -mount ?D\"", "-c", "exit"],
-    "ext": ["bas", "ldr"],
+  "launch brmsx msx2 (dosbox) with MSXDSK image": {
+    "cmd": ["caminho:dosbox", "-fullscreen", "-c", "mount", "?u", "?U",
+      "-c", "mount", "c:", "caminho:brmsx", "-c", "c:", "-c",
+      "\"BRMSX -noenter -msx2 -mapper 4 -diska ?c\"", "-c", "exit"],
+    "ext": [".dsk"],
+    "dos": true,
+    "extrai_tudo": false
+  },
+  "launch brmsx (dosbox) with MSXDSK image": {
+    "cmd": ["caminho:dosbox", "-fullscreen", "-c", "mount", "?u", "?U",
+      "-c", "mount", "c:", "caminho:brmsx", "-c", "c:", "-c",
+      "\"BRMSX -noenter -mapper 4 -diska ?c\"", "-c", "exit"],
+    "ext": [".dsk"],
+    "dos": true,
+    "extrai_tudo": false
+  },
+  "*launch openmsx with MSXDSK image as hdd": {
+    "cmd": ["caminho:openmsx", "-machine", "CIEL_Expert-Turbo", "-ext", "ide", "-hda"],
+    "ext": [".dsk"],
+    "dos": false,
+    "extrai_tudo": true
+  },
+  "launch openmsx with MSXDSK image as fdc": {
+    "cmd": ["caminho:openmsx", "-machine", "CIEL_Expert-Turbo", "-ext", "DDX_3.0", "-diska"],
+    "ext": [".dsk"],
+    "dos": false,
+    "extrai_tudo": true
+  },
+  "launch openmsx with MSXDSK image as drive b: on dos2": {
+    "cmd": ["caminho:openmsx", "-machine", "CIEL_Expert-Turbo", "-ext", "ide", "-hda",
+      "caminho:dos2dsk", "-ext", "DDX_3.0", "-diska"],
+    "ext": [".dsk"],
+    "dos": false,
+    "extrai_tudo": true
+  },
+  "launch meisei with MSXDSK image": {
+    "cmd": ["caminho:meisei"],
+    "ext": [".dsk"],
+    "dos": false,
+    "extrai_tudo": false
+  },
+  "launch fmsx with MSXDSK image": {
+    "cmd": ["caminho:fmsx", "-diska"],
+    "ext": [".dsk"],
+    "dos": false,
+    "extrai_tudo": false
+  },
+  "launch no$msx with MSXDSK image": {
+    "cmd": ["caminho:no$msx"],
+    "ext": [".dsk"],
+    "dos": false,
+    "extrai_tudo": false
+  },
+  "*launch openmsx ciel expert with MSXROM image": {
+    "cmd": ["caminho:openmsx", "-machine", "CIEL_Expert-Turbo", "-cart"],
+    "ext": [".rom", ".mx1", ".mx2"],
+    "dos": false,
+    "extrai_tudo": false
+  },
+  "launch fmsx with MSXROM image": {
+    "cmd": ["caminho:fmsx"],
+    "ext": [".rom", ".mx1", ".mx2"],
+    "dos": false,
+    "extrai_tudo": false
+  },
+  "launch no$msx with MSXROM image": {
+    "cmd": ["caminho:no$msx"],
+    "ext": [".rom", ".mx1", ".mx2"],
+    "dos": false,
+    "extrai_tudo": false
+  },
+  "launch brmsx (dosbox) with MSXROM image": {
+    "cmd": ["caminho:dosbox", "-fullscreen", "-c", "mount", "?u", "?U",
+      "-c", "mount", "c:", "caminho:brmsx", "-c", "c:", "-c",
+      "\"BRMSX -noenter -mapper 4 ?c\"", "-c", "exit"],
+    "ext": [".rom"],
+    "dos": true,
+    "extrai_tudo": false
+  },
+  "launch brmsx msx2 (dosbox) with MSXROM image": {
+    "cmd": ["caminho:dosbox", "-fullscreen", "-c", "mount", "?u", "?U",
+      "-c", "mount", "c:", "caminho:brmsx", "-c", "c:", "-c",
+      "\"BRMSX -noenter -mapper 4 -msx2 ?c\"", "-c", "exit"],
+    "ext": [".rom"],
+    "dos": true,
+    "extrai_tudo": false
+  },
+  "*launch openmsx with MSXCAS image": {
+    "cmd": ["caminho:openmsx", "-machine", "Gradiente_Expert_XP-800", "-cassetteplayer"],
+    "ext": [".cas", ".wav"],
+    "dos": false,
+    "extrai_tudo": false
+  },
+  "launch fmsx with MSXCAS image": {
+    "cmd": ["caminho:fmsx"],
+    "ext": [".cas", ".wav"],
+    "dos": false,
+    "extrai_tudo": false
+  },
+  "launch meisei with MSXCAS image": {
+    "cmd": ["caminho:meisei"],
+    "ext": [".cas", ".wav"],
+    "dos": false,
+    "extrai_tudo": false
+  },
+  "launch openmsx msx2 with MSXBAS autoload": {
+    "cmd": ["echo",
+      "after time 10 {type \"run \\\"?a\\\"\\r\"} > ?u\\om_init.tcl", "&",
+      "caminho:openmsx",
+      "-machine", "Boosted_MSX2_EN", "-diska", "?D",
+      "-command", "\"set fullscreen on\"", "-script", "?u\\om_init.tcl",
+      "&", "del ?u\\om_init.tcl"],
+    "ext": [".bas", ".ldr"],
+    "dos": false,
+    "extrai_tudo": true
+  },
+  "*launch openmsx msx1 with MSXBAS autoload": {
+    "cmd": ["echo",
+      "after time 13 {type \"\\r\"; after time 1 {type \"run \\\"?a\\\"\\r\"}} > ?u\\om_init.tcl", "&",
+      "caminho:openmsx",
+      "-machine", "Gradiente_Expert_XP-800", "-ext", "DDX_3.0", "-diska", "?D",
+      "-command", "\"set fullscreen on\"", "-script", "?u\\om_init.tcl",
+      "&", "del ?u\\om_init.tcl"],
+    "ext": [".bas", ".ldr"],
+    "dos": false,
+    "extrai_tudo": true
+  },
+  "launch openmsx with MSXBIN image basic autoload": {
+    "cmd": ["echo",
+      "after time 10 {type \"bload \\\"?a\\\",r\\r\"} > ?u\\om_init.tcl", "&",
+      "caminho:openmsx",
+      "-machine", "Boosted_MSX2_EN", "-diska", "?D",
+      "-command", "\"set fullscreen on\"", "-script", "?u\\om_init.tcl",
+      "&", "del ?u\\om_init.tcl"],
+    "ext": [],
+    "dos": false,
+    "extrai_tudo": true
+  },
+  "*launch openmsx msx1 with MSXBIN image basic autoload": {
+    "cmd": ["echo",
+      "after time 13 {type \"\\r\"; after time 1 {type \"bload \\\"?a\\\",r\\r\"}} > ?u\\om_init.tcl", "&",
+      "caminho:openmsx",
+      "-machine", "Gradiente_Expert_XP-800", "-ext", "DDX_3.0", "-diska", "?D",
+      "-command", "\"set fullscreen on\"", "-script", "?u\\om_init.tcl",
+      "&", "del ?u\\om_init.tcl"],
+    "ext": [],
+    "dos": false,
+    "extrai_tudo": true
+  },
+  "launch brmsx (dosbox) with MSXBAS image": {
+    "cmd": ["caminho:dosbox", "-fullscreen", "-c", "mount", "?u", "?U",
+      "-c", "mount", "c:", "caminho:brmsx", "-c", "c:", "-c",
+      "\"BRMSX -noenter -mapper 4 -mount ?D\"", "-c", "exit"],
+    "ext": [".bas", ".ldr"],
     "dos": true,
     "extrai_tudo": true
   },
-  "*MSXDOS openmsx": {
-    "cmd": ["D:\\emul\\msx\\openmsx\\AMD64\\openmsx.exe", "-machine", "Boosted_MSX2_EN",
-	  "-diska", "?D"],
-    "ext": ["msxdos.sys", "command.com"],
+  "launch brmsx msx2 (dosbox) with MSXBAS image": {
+    "cmd": ["caminho:dosbox", "-fullscreen", "-c", "mount", "?u", "?U",
+      "-c", "mount", "c:", "caminho:brmsx", "-c", "c:", "-c",
+      "\"BRMSX -noenter -msx2 -mapper 4 -mount ?D\"", "-c", "exit"],
+    "ext": [".bas", ".ldr"],
+    "dos": true,
+    "extrai_tudo": true
+  },
+  "*boot target MSXDOS with openmsx msx1 and auto dir *.com": {
+    "cmd": ["echo",
+      "after time 10 {type \"dir *.com\\r\"} > ?u\\om_init.tcl", "&",
+      "caminho:openmsx",
+      "-machine", "Gradiente_Expert_XP-800", "-ext", "ram512k", "-ext", "ide",
+      "-command", "\"diskmanipulator create ?u\\hda.dsk 32M\"",
+      "-command", "\"hda ?u\\hda.dsk\"",
+      "-command", "\"diskmanipulator import hda ?D\"",
+      "-command", "\"set fullscreen on\"", "-script", "?u\\om_init.tcl",
+      "&", "del ?u\\om_init.tcl", "&", "del ?u\\hda.dsk"],
+    "ext": ["msxdos.sys", "command.com", "msxdos2.sys", "command2.com"],
     "dos": false,
     "extrai_tudo": true
   },
-  "MSXDOS COM drive b: openmsx": {
-    "cmd": ["D:\\emul\\msx\\openmsx\\AMD64\\openmsx.exe", "-machine", "Boosted_MSX2_EN",
-	  "-ext", "msxdos2", "-diska",
-      "D:\\emul\\msx\\openmsx\\dos2", "-diskb", "?D"],
-    "ext": ["com"],
+  "boot target MSXDOS with openmsx msx2 and auto dir *.com": {
+    "cmd": ["echo",
+      "after time 10 {type \"dir *.com\\r\"} > ?u\\om_init.tcl", "&",
+      "caminho:openmsx",
+      "-machine", "Boosted_MSX2_EN", "-ext", "ide",
+      "-command", "\"diskmanipulator create ?u\\hda.dsk 32M\"",
+      "-command", "\"hda ?u\\hda.dsk\"",
+      "-command", "\"diskmanipulator import hda ?D\"",
+      "-command", "\"set fullscreen on\"", "-script", "?u\\om_init.tcl",
+      "&", "del ?u\\om_init.tcl", "&", "del ?u\\hda.dsk"],
+    "ext": ["msxdos.sys", "command.com", "msxdos2.sys", "command2.com"],
     "dos": false,
     "extrai_tudo": true
   },
-  "Master System / Game Gear / SG1000 / SC3000": {
-    "cmd": ["D:\\emul\\master system\\mekaw-2023-08-26\\x86\\mekaw.exe"],
-    "ext": ["sms", "gg", "sg", "sc"],
+  "*load MSX-DOS promgram / Z80-like code with openmsx msx1 on emulated hda MSXDOS2 autoload": {
+    "cmd": ["echo",
+      "after time 15 {type \"?a\\r\"} > ?u\\om_init.tcl", "&",
+      "caminho:openmsx",
+      "-machine", "Gradiente_Expert_XP-800", "-ext", "ram512k", "-ext ide",
+      "-command", "\"diskmanipulator create ?u\\hda.dsk 32M\"",
+      "-command", "\"hda ?u\\hda.dsk\"",
+      "-command", "\"diskmanipulator import hda ?D\"",
+      "-command", "\"diskmanipulator import hda d:\\msx_arquivos\\boot\\dos2\"",
+      "-command", "\"set fullscreen on\"", "-script ?u\\om_init.tcl",
+      "&", "del ?u\\om_init.tcl", "&", "del ?u\\hda.dsk"],
+    "ext": [".bat", ".com"],
+    "dos": false,
+    "extrai_tudo": true
+  },
+  "load MSX-DOS promgram / Z80-like code with openmsx msx2 on emulated hda MSXDOS2 autoload": {
+    "cmd": ["echo",
+      "after time 20 {type \"?a\\r\"} > ?u\\om_init.tcl", "&",
+      "caminho:openmsx",
+      "-machine", "Boosted_MSX2+_JP", "-ext ide",
+      "-command", "\"diskmanipulator create ?u\\hda.dsk 32M\"",
+      "-command", "\"hda ?u\\hda.dsk\"",
+      "-command", "\"diskmanipulator import hda ?D\"",
+      "-command", "\"diskmanipulator import hda d:\\msx_arquivos\\boot\\dos2\"",
+      "-command", "\"set fullscreen on\"", "-script ?u\\om_init.tcl",
+      "&", "del ?u\\om_init.tcl", "&", "del ?u\\hda.dsk"],
+    "ext": [".bat", ".com"],
+    "dos": false,
+    "extrai_tudo": true
+  },
+  "launch meka with Master System / Game Gear / SG1000 / SC3000 / Z80-like code / MSXROM image": {
+    "cmd": ["caminho:meka"],
+    "ext": [".sms", ".gg", ".sg", ".sc"],
     "dos": false,
     "extrai_tudo": false
   },
-  "Mega Drive / Sega 32x": {
-    "cmd": ["D:\\emul\\multiple systems\\Fusion363 x86\\Fusion.exe"],
-    "ext": ["bin", "smd", "md", "gen", "32x"],
+  "launch fusion with Mega Drive / Sega 32x image": {
+    "cmd": ["caminho:fusion"],
+    "ext": [".smd", ".md", ".gen", ".32x"],
     "dos": false,
     "extrai_tudo": false
   },
-  "Nintendinho": {
-    "cmd": ["D:\\emul\\nes\\fceux-2.3.0-win32\\fceux.exe"],
-    "ext": ["nes"],
+  "launch fusion with SEGA CD / MEGA CD / SEGA CD 32X image": {
+    "cmd": ["caminho:fusion", "\"?D\\?*.cue*\""],
+    "ext": [".iso", ".bin"],
+    "dos": false,
+    "extrai_tudo": true
+  },
+  "launch fceux with NES image": {
+    "cmd": ["caminho:fceux"],
+    "ext": [".nes"],
     "dos": false,
     "extrai_tudo": false
   },
-  "Super Nintendo": {
-    "cmd": ["D:\\emul\\super nes\\snes9x\\snes9x_1.60_x64\\snes9x-x64.exe"],
-    "ext": ["sfc", "smc"],
+  "launch snes9x with Super Nintendo image": {
+    "cmd": ["caminho:snes9x"],
+    "ext": [".sfc", ".smc"],
     "dos": false,
     "extrai_tudo": false
+  },
+  "launch no$2k6 with Atari 2600 image": {
+    "cmd": ["caminho:no$2k6"],
+    "ext": [".a26"],
+    "dos": false,
+    "extrai_tudo": false
+  },
+  "launch yabasanshiro with Saturn CHD image": {
+    "cmd": ["caminho:yabasanshiro", "-a", "-i", "\"?c\""],
+    "ext": [".chd"],
+    "dos": false,
+    "extrai_tudo": true
+  },
+  "launch yabasanshiro with Saturn BIN / ISO image": {
+    "cmd": ["caminho:yabasanshiro", "-a", "-i", "\"?D\\?*.cue*\""],
+    "ext": [".iso", ".bin"],
+    "dos": false,
+    "extrai_tudo": true
+  },
+  "launch tgemu (dosbox) with PCengine / TurboGrax16 image": {
+    "cmd": ["caminho:dosbox", "-fullscreen", "-c", "mount", "?u", "?U",
+      "-c", "mount", "c:", "caminho:tgemu", "-c", "c:", "-c",
+      "\"PCE ?c -scanlines on -sound on -fps -skip 1\""],
+    "ext": [".pce"],
+    "dos": true,
+    "extrai_tudo": false
+  },
+  "launch magicengine with PCengine / TurboGrax16 image": {
+    "cmd": ["caminho:magicengine"],
+    "ext": [".pce"],
+    "dos": false,
+    "extrai_tudo": false
+  },
+  "*launch Ootake with PCengine / TurboGrax16 image": {
+    "cmd": ["caminho:ootake"],
+    "ext": [".pce"],
+    "dos": false,
+    "extrai_tudo": false
+  },
+  "launch turboengine with PCengine / TurboGrax16 rom image": {
+    "cmd": ["caminho:turboengine"],
+    "ext": [".pce"],
+    "dos": false,
+    "extrai_tudo": false
+  },
+  "launch 16bit Windows exec with otvdm": {
+    "cmd": ["caminho:otvdm"],
+    "ext": [".exe", ".scr"],
+    "dos": false,
+    "extrai_tudo": true
   }
 }

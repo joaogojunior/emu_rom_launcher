@@ -1,9 +1,8 @@
 # import da data atual
 from pyinstaller_build_date import data_hora_build
-from descompactadores_dict import descompactadores
+from cria_json_inicial.descompactadores_dict import descompactadores
 
-# versao atual
-VER = "0.1h"
+from valores_globais import VER
 
 # descricao do app utilizado pelo argparser e na criacao do readme.txt
 description_text = "Emu_rom_launcher v" + VER + " - tenta detectar o tipo de rom e executa o emulador apropiado."
@@ -22,6 +21,12 @@ caminho_text = (f'Caminho para o arquivo rom sendo este o argumento necessário 
 
 # texto do help descrevendo opcao -r utilizado pelo argparser e na criação de readme.txt
 remove_text = "Remove a unidade ramdrive ativa e configurada em \"caminho_temp_dir\"."
+
+# texto do help descrevendo opcao -v
+verbose_text = "Ativa as mensagens internas e de debug...."
+
+# texto do help da gui
+edit_gui_text = "Mostra interface qt6 para visualizar ou editar os tipos disponíveis."
 
 # texto formatado manualmente utilizado pelo argparser e na criação do readme.txt
 epilog_text = (
@@ -90,12 +95,18 @@ epilog_text = (
     '["C:\\\\Program Files (x86)\\\\DOSBox-0.74-3\\\\DOSBox.exe", "-fullscreen"].\n'
     '\n'
     'Os seguintes caracteres tem significado especial e podem ser usados como parte dos argumentos:\n'
+    ' ?a - é substituído pelo nome do arquivo rom.\n'
+    '   Exemplo: [TODO falta um exemplo...]\n'    
     ' ?c - é substituído pelo nome e caminho completo do arquivo rom descompactado no ramdrive.\n'
     '   Exemplo: [..., "BRMSX -noenter -mapper 4 -ramslot 3 -diska ?c"]\n'
     ' ?d - é substituído pelo caminho relativo do arquivo rom descompactado no ramdrive.\n'
     '   Exemplo: [..., "-c", "cd ?d", "-c", "DOSSTART.BAT"]\n'
     ' ?D - é substituído pelo caminho completo do arquivo rom descompactado no ramdrive.\n'
     '   Exemplo: ["D:\\emul\\msx\\openmsx\\AMD64\\openmsx.exe", "-diska", "?D"]\n'
+    ' ?t - é substituído pela unidade de drive temporário sem barra.\n'
+    '   Exemplo: TODO - falta um exemplo...\n'
+    ' ?T - é substituído pela unidade de drive temporário (ramdrive) com barra.\n'
+    '   Exemplo: TODO - falta um exemplo...\n'
     'Se não for especificado nenhum dos caracteres especiais acima o nome e caminho completo da rom\n'
     'são adiciondos automaticamente como o último parâmetro de cmd amtes da execução do mesmo.\n'
     '\n'
